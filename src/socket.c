@@ -10,9 +10,9 @@
 // |        SERVER CODE        |
 // |---------------------------|
 
+
 int max_clients;
 int num_clients = 0;
-
 
 // the thread that is created for each client
 void* client_thread(void* current_client_pointer) {
@@ -20,12 +20,12 @@ void* client_thread(void* current_client_pointer) {
   while(1) {
     char buffer[1024];
     memset(buffer, 0, sizeof(buffer));
-    
+
     if(recv(current_client, buffer, sizeof(buffer), 0) == 0) {
       printf("Client disconnected.\n");
       return NULL;
     }
-        
+
     printf("%s", buffer);
   }
   return NULL;
